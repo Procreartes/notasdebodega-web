@@ -1,0 +1,57 @@
+{
+  "_instrucciones": "Para añadir una fecha, copia un bloque de 'eventos' y cambia los datos. Las fechas ya pasadas se mueven solas a 'Ediciones anteriores'. Formato de fecha: AAAA-MM-DD. 'cartel' es la ruta sin el '-400.webp' / '-800.webp' final; déjalo vacío si no hay cartel. 'reserva' es un enlace opcional (web, WhatsApp, etc.).",
+
+  "artistas": [
+    {
+      "nombre": "Noelia Mederos",
+      "rol": "Artista invitada",
+      "estilos": "Soul · Jazz · Blues · Latin · Pop",
+      "foto": ""
+    }
+  ],
+
+  "ediciones": {
+    "2025": {
+      "texto": "El Restaurante Savia, en el Monte Lentiscal, acogió las primeras citas de Notas de Bodega: jueves y sábados de diciembre con música en directo y vinos D.O. Gran Canaria."
+    }
+  },
+
+  "eventos": [
+    {
+      "fecha": "2025-12-04",
+      "hora": "20:00",
+      "lugar": "Restaurante Savia",
+      "zona": "Monte Lentiscal, Santa Brígida",
+      "artista": "",
+      "cartel": "/img/carteles/2025-12-04",
+      "reserva": ""
+    },
+    {
+      "fecha": "2025-12-06",
+      "hora": "20:00",
+      "lugar": "Restaurante Savia",
+      "zona": "Monte Lentiscal, Santa Brígida",
+      "artista": "",
+      "cartel": "/img/carteles/2025-12-06",
+      "reserva": ""
+    },
+    {
+      "fecha": "2025-12-11",
+      "hora": "20:30",
+      "lugar": "Restaurante Savia",
+      "zona": "Monte Lentiscal, Santa Brígida",
+      "artista": "",
+      "cartel": "/img/carteles/2025-12-11-13",
+      "reserva": ""
+    },
+    {
+      "fecha": "2025-12-13",
+      "hora": "20:30",
+      "lugar": "Restaurante Savia",
+      "zona": "Monte Lentiscal, Santa Brígida",
+      "artista": "",
+      "cartel": "/img/carteles/2025-12-11-13",
+      "reserva": ""
+    }
+  ]
+}
