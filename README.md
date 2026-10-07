@@ -38,22 +38,11 @@ Las imágenes van en WebP y en dos tamaños:
 
 En `eventos.json` o en `artistas` se pone la ruta **sin** el `-400.webp` final.
 
-## Formulario de contacto
-
-El formulario solo aparece cuando tiene adónde enviar. En `index.html`, en la etiqueta `<form id="formulario">`:
-
-- `data-endpoint`: URL del webhook de n8n (empieza por `https://`).
-- `data-turnstile-sitekey`: clave pública de Cloudflare Turnstile.
-
-El webhook de n8n debe **verificar el token de Turnstile** (`cf-turnstile-response`) contra
-`https://challenges.cloudflare.com/turnstile/v0/siteverify` con la clave secreta antes de enviar el correo.
-Recibe JSON con: `nombre`, `apellidos`, `email`, `asunto`, `mensaje`, `privacidad`, `cf-turnstile-response`, `origen`.
-
 ## Qué incluye
 
 Aviso legal, privacidad y cookies · favicon e iconos · `sitemap.xml` y `robots.txt` · página 404 ·
 imagen para compartir en redes (`og:image`) · textos ALT · imágenes WebP con carga diferida ·
 tipografías alojadas en la propia web (sin llamadas a Google) · cabeceras de seguridad en `_headers` ·
-datos estructurados de eventos para Google · formulario validado con antispam.
+datos estructurados de eventos para Google · contacto solo por email (sin formulario).
 
 Analítica: activar **Cloudflare Web Analytics** desde el panel (no usa cookies, no necesita banner).

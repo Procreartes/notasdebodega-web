@@ -82,7 +82,7 @@
   /* ===== Eventos y artistas desde data/eventos.json ===== */
   function tarjetaArtista(ar) {
     var foto = ar.foto
-      ? '<img src="' + esc(ar.foto) + '-600.webp" srcset="' + esc(ar.foto) + '-600.webp 600w, ' + esc(ar.foto) + '-1000.webp 1000w" sizes="(max-width: 600px) 100vw, 440px" width="600" height="750" loading="lazy" decoding="async" alt="' + esc(ar.nombre) + ' actuando">'
+      ? '<img src="' + esc(ar.foto) + '-600.webp" srcset="' + esc(ar.foto) + '-600.webp 600w, ' + esc(ar.foto) + '-1000.webp 1000w" sizes="(max-width: 600px) 100vw, 440px" width="600" height="750" loading="lazy" decoding="async" alt="Foto de ' + esc(ar.nombre) + '">'
       : "";
     return '<article class="artista reveal">' + foto +
       '<div class="artista-texto">' + (ar.rol ? '<span class="etiqueta">' + esc(ar.rol) + "</span>" : "") +
@@ -195,84 +195,4 @@
       .catch(function () {});
   } catch (e) {}
 
-  /* ===== Formulario de contacto ===== */
-  try {
-    var form = $("#formulario");
-    var endpoint = form ? (form.getAttribute("data-endpoint") || "").trim() : "";
-    var sitekey = form ? (form.getAttribute("data-turnstile-sitekey") || "").trim() : "";
-
-    if (form && /^https:\/\//.test(endpoint)) {
-      form.hidden = false;
-      var estado = $("#estado-envio");
-      var botonEnviar = $("button[type=submit]", form);
-      var widgetId = null;
-
-      if (sitekey) {
-        window.ndbTurnstile = function () {
-          try { widgetId = window.turnstile.render("#turnstile", { sitekey: sitekey, language: "es", theme: "light" }); } catch (e) {}
-        };
-        var ts = document.createElement("script");
-        ts.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=ndbTurnstile";
-        ts.async = true; ts.defer = true;
-        document.head.appendChild(ts);
-      }
-
-      var mensajes = {
-        nombre: "Escribe tu nombre.",
-        email: "Escribe un email válido, por ejemplo nombre@dominio.com.",
-        mensaje: "Cuéntanos algo más (mínimo 10 caracteres).",
-        privacidad: "Necesitamos que aceptes la política de privacidad para responderte."
-      };
-      var marcar = function (campo, txt) {
-        var c = campo.closest(".campo"); if (!c) return;
-        c.classList.toggle("con-error", !!txt);
-        var e = $(".error", c); if (e) e.textContent = txt || "";
-        campo.setAttribute("aria-invalid", txt ? "true" : "false");
-      };
-      var validar = function () {
-        var ok = true, primero = null;
-        $$("input[required], textarea[required]", form).forEach(function (campo) {
-          var v = campo.type === "checkbox" ? campo.checked : campo.value.trim();
-          var valido = !!v;
-          if (valido && campo.type === "email") valido = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(campo.value.trim());
-          if (valido && campo.minLength > 0) valido = campo.value.trim().length >= campo.minLength;
-          marcar(campo, valido ? "" : (mensajes[campo.name] || "Revisa este campo."));
-          if (!valido) { ok = false; primero = primero || campo; }
-        });
-        if (primero) primero.focus();
-        return ok;
-      };
-      $$("input, textarea", form).forEach(function (c) { c.addEventListener("input", function () { if (c.getAttribute("aria-invalid") === "true") marcar(c, ""); }); });
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        estado.textContent = ""; estado.className = "estado-envio";
-        if ($("#f-web").value) return; /* robot */
-        if (!validar()) return;
-        var datos = {};
-        new FormData(form).forEach(function (v, k) { datos[k] = v; });
-        if (sitekey && !datos["cf-turnstile-response"]) {
-          estado.textContent = "Espera un momento a que se complete la verificación antispam y vuelve a pulsar Enviar.";
-          estado.className = "estado-envio ko"; return;
-        }
-        datos.origen = "notasdebodega.es";
-        botonEnviar.disabled = true; botonEnviar.textContent = "Enviando…";
-        fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(datos) })
-          .then(function (r) { if (!r.ok) throw new Error(r.status); })
-          .then(function () {
-            form.reset();
-            estado.textContent = "¡Gracias! Hemos recibido tu mensaje y te responderemos pronto.";
-            estado.className = "estado-envio ok";
-          })
-          .catch(function () {
-            estado.textContent = "No se ha podido enviar. Inténtalo de nuevo o escríbenos a dislateproducciones@gmail.com.";
-            estado.className = "estado-envio ko";
-          })
-          .then(function () {
-            botonEnviar.disabled = false; botonEnviar.textContent = "Enviar mensaje";
-            try { if (window.turnstile && widgetId !== null) window.turnstile.reset(widgetId); } catch (e) {}
-          });
-      });
-    }
-  } catch (e) {}
 })();

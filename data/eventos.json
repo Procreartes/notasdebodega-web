@@ -1,21 +1,27 @@
 {
   "_instrucciones": "Para añadir una fecha, copia un bloque de 'eventos' y cambia los datos. Las fechas ya pasadas se mueven solas a 'Ediciones anteriores'. Formato de fecha: AAAA-MM-DD. 'cartel' es la ruta sin el '-400.webp' / '-800.webp' final; déjalo vacío si no hay cartel. 'reserva' es un enlace opcional (web, WhatsApp, etc.).",
-
   "artistas": [
     {
       "nombre": "Noelia Mederos",
-      "rol": "Artista invitada",
+      "rol": "",
       "estilos": "Soul · Jazz · Blues · Latin · Pop",
-      "foto": ""
+      "foto": "/img/fotos/directo-vertical"
+    },
+    {
+      "nombre": "Patricia Viera",
+      "rol": "",
+      "estilos": "",
+      "foto": "/img/fotos/retrato-artista"
     }
   ],
-
   "ediciones": {
     "2025": {
       "texto": "El Restaurante Savia, en el Monte Lentiscal, acogió las primeras citas de Notas de Bodega: jueves y sábados de diciembre con música en directo y vinos D.O. Gran Canaria."
+    },
+    "2026": {
+      "texto": "Notas de Bodega llega a La Cervecita, en Telde: jueves de octubre y noviembre con música en directo y vinos D.O. Gran Canaria."
     }
   },
-
   "eventos": [
     {
       "fecha": "2025-12-04",
@@ -51,6 +57,51 @@
       "zona": "Monte Lentiscal, Santa Brígida",
       "artista": "",
       "cartel": "/img/carteles/2025-12-11-13",
+      "reserva": ""
+    },
+    {
+      "fecha": "2026-10-15",
+      "hora": "20:30",
+      "lugar": "La Cervecita",
+      "zona": "Telde",
+      "artista": "Noelia Mederos",
+      "cartel": "",
+      "reserva": ""
+    },
+    {
+      "fecha": "2026-10-22",
+      "hora": "20:30",
+      "lugar": "La Cervecita",
+      "zona": "Telde",
+      "artista": "Patricia Viera",
+      "cartel": "",
+      "reserva": ""
+    },
+    {
+      "fecha": "2026-10-29",
+      "hora": "20:30",
+      "lugar": "La Cervecita",
+      "zona": "Telde",
+      "artista": "Noelia Mederos",
+      "cartel": "",
+      "reserva": ""
+    },
+    {
+      "fecha": "2026-11-19",
+      "hora": "20:30",
+      "lugar": "La Cervecita",
+      "zona": "Telde",
+      "artista": "Patricia Viera",
+      "cartel": "",
+      "reserva": ""
+    },
+    {
+      "fecha": "2026-11-26",
+      "hora": "20:30",
+      "lugar": "La Cervecita",
+      "zona": "Telde",
+      "artista": "Noelia Mederos",
+      "cartel": "",
       "reserva": ""
     }
   ]
