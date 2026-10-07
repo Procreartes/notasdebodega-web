@@ -1,6 +1,6 @@
 # Notas de Bodega — web
 
-Web estática de **notasdebodega.com**. Proyecto de Dislate Producciones SL.
+Web estática de **notasdebodega.es**. Proyecto de Dislate Producciones SL.
 Se publica en Cloudflare (Workers con recursos estáticos) conectada a este repositorio: cada cambio en `main` se publica solo.
 
 ## Añadir o cambiar fechas

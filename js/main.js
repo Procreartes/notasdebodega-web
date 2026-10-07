@@ -125,9 +125,9 @@
           "eventStatus": "https://schema.org/EventScheduled",
           "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
           "location": { "@type": "Place", "name": ev.lugar, "address": (ev.zona || "") + ", Gran Canaria, España" },
-          "organizer": { "@type": "Organization", "name": "Dislate Producciones SL", "url": "https://notasdebodega.com/" }
+          "organizer": { "@type": "Organization", "name": "Dislate Producciones SL", "url": "https://notasdebodega.es/" }
         };
-        if (ev.cartel) obj.image = "https://notasdebodega.com" + ev.cartel + "-800.webp";
+        if (ev.cartel) obj.image = "https://notasdebodega.es" + ev.cartel + "-800.webp";
         if (ev.artista) obj.performer = { "@type": "Person", "name": ev.artista };
         return obj;
       });
@@ -255,7 +255,7 @@
           estado.textContent = "Espera un momento a que se complete la verificación antispam y vuelve a pulsar Enviar.";
           estado.className = "estado-envio ko"; return;
         }
-        datos.origen = "notasdebodega.com";
+        datos.origen = "notasdebodega.es";
         botonEnviar.disabled = true; botonEnviar.textContent = "Enviando…";
         fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(datos) })
           .then(function (r) { if (!r.ok) throw new Error(r.status); })
