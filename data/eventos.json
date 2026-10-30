@@ -87,6 +87,24 @@
       "reserva": ""
     },
     {
+      "fecha": "2026-11-05",
+      "hora": "20:30",
+      "lugar": "La Cervecita",
+      "zona": "Telde",
+      "artista": "Patri Viera",
+      "cartel": "blob:https://chatgpt.com/3f7699be-6cc7-4476-ab04-5b4e64e75da5",
+      "reserva": ""
+    },
+    {
+      "fecha": "2026-11-12",
+      "hora": "20:30",
+      "lugar": "La Cervecita",
+      "zona": "Telde",
+      "artista": "Noelia Mederos",
+      "cartel": "blob:https://chatgpt.com/949f81e1-7c13-4517-89b3-0d6ea4298dec",
+      "reserva": ""
+    },
+    {
       "fecha": "2026-11-19",
       "hora": "20:30",
       "lugar": "La Cervecita",
